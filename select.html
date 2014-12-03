@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{ font-size: 12px;}
+        ul{ margin: 0px; padding: 0; list-style: none;}
+        ul li{ padding: 0px 10px; margin: 0px; height: 26px; line-height: 26px;}
+        .select{ width: 200px;}
+        .ul_select{ position: relative; background: #fff;}
+        .select input{ height: 26px; line-height: 26px; border: solid 1px #ccc; width: 100%; text-indent: 10px; padding: 0px;}
+        .select ul{ width: 100%; border:solid 1px #ccc; max-height: 200px; overflow-y: auto;}
+        .select ul li.current{ background: #9dd8fb;}
+    </style>
+</head>
+<body>
+    <form>
+        <ul>
+            <li>
+                <select name="selectName" id="selectName" class="sel">
+                    <option value="111">111</option>
+                    <option value="222">222</option>
+                    <option value="333">333</option>
+                    <option value="444">444</option>
+                    <option value="444">555</option>
+                    <option value="444">666</option>
+                    <option value="444">777</option>
+                    <option value="444">888</option>
+                    <option value="444">999</option>
+                    <option selected="selected" value="444">000</option>
+                </select>
+            </li>
+            <li>
+                <select name="selectName" class="sel" id="selectName2">
+                    <option selected="selected" value="111">aaa</option>
+                    <option value="222">bbb</option>
+                    <option value="333">ccc</option>
+                    <option value="444">ddd</option>
+                    <option value="444">eee</option>
+                    <option value="444">fff</option>
+                    <option value="444">ggg</option>
+                    <option value="444">hhh</option>
+                    <option value="444">iii</option>
+                </select>
+            </li>
+        </ul>
+    </form>
+
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="select.jQuery.js"></script>
+<script type="text/javascript">
+    $("#selectName").selectBeauty({
+        "wrapClass":"select",
+        "readOnly":false,
+        "onChange": function(dataValue) {
+            console.log(dataValue);
+        }
+    });
+    $("#selectName2").selectBeauty({
+        "wrapClass":"select",
+        "readOnly":false,
+        "onChange": function(dataValue) {
+            console.log(dataValue);
+        }
+    });
+    /*var select = document.getElementById('selectName');
+    var options = {
+        "select": select,
+        "wrapClass": 'selectClassName',
+        "readOnly": false
+    }
+    initSelect(options);
+
+    function initSelect(options) {
+        var isArray = options.select instanceof Array;
+        if(!isArray) {
+           createList(options);
+        }
+    }
+
+    function createList(options) {
+        var sel = options.select;
+        var parentNode = sel.parentNode;
+        var parentDiv = document.createElement('div');
+        parentDiv.className = options.wrapClass;
+        parentDiv.appendChild(sel);
+        parentNode.appendChild(parentDiv);
+        sel.style.display = "none";
+
+        var optionList = sel.options;
+        var selectValue = optionList[optionList.selectedIndex].value;
+        var selectText = optionList[optionList.selectedIndex].text;
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.setAttribute('data-value', selectValue);
+        input.setAttribute('value', selectText);
+        if(options.readOnly){
+            input.setAttribute('readOnly',"readOnly");
+        }
+        parentDiv.appendChild(input);
+
+
+        var optionLength = optionList.length;
+        var ul = document.createElement('ul');
+        ul.className = "ul_" + options.wrapClass;
+        for (var i = 0;i < optionLength; i++) {
+            var text = optionList[i].text;
+            var value = optionList[i].value;
+            var li = document.createElement('li');
+            li.setAttribute('data_value', value);
+            li.innerHTML = text;
+            ul.appendChild(li);
+        }
+        ul.style.display = 'none';
+        parentDiv.appendChild(ul);
+
+
+
+
+        //return ul;
+
+    }*/
+</script>
+</body>
+</html>
